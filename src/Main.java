@@ -1,4 +1,11 @@
 public class Main {
+    public static void printTotalSalary(Employee[] employees) {
+        int totalSalary = 0;
+        for (int i = 0; i < employees.length; i++) {
+            totalSalary = totalSalary + employees[i].getSalary();
+        }
+        System.out.println("Сумма трат за месяц составит - " + totalSalary);
+    }
     public static void main(String[] args) {
         DepartmentServise departmentServise = new DepartmentServise();
         Person[] person = new Person[10];
