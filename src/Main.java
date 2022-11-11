@@ -1,11 +1,6 @@
+import java.sql.SQLOutput;
+
 public class Main {
-    public static void printTotalSalary(Employee[] employees) {
-        int totalSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            totalSalary = totalSalary + employees[i].getSalary();
-        }
-        System.out.println("Сумма трат за месяц составит - " + totalSalary);
-    }
     public static void main(String[] args) {
         DepartmentServise departmentServise = new DepartmentServise();
         Person[] person = new Person[10];
@@ -30,15 +25,53 @@ public class Main {
         employees[7] = new Employee(person[7], 2, 49678);
         employees[8] = new Employee(person[8], 3,79625);
         employees[9] = new Employee(person[9], 4, 99999);
+        int id = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 if (departmentServise.isAdult(employees[i])) {
                     System.out.println("Введите правильный отдел сотрудника  - от 1 до 5");
+                } else {
+                    id++;
+                    System.out.println(person[i].toString() + employees[i].toString());
                 }
-                System.out.println(person[i].toString() + employees[i].toString());
             } else {
                 System.out.println("");
             }
+            System.out.println(id);
+        }
+        int totalSalary = 0;
+        for (int i = 0; i < employees.length; i++) {
+            totalSalary = totalSalary + employees[i].getSalary();
+        }
+        System.out.println("Сумма всех трат за месяц - " + totalSalary);
+
+        int minSalary = employees[0].getSalary();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() < minSalary) {
+                minSalary = employees[i].getSalary();
+            }
+        }
+        System.out.println("Сотрудник с минимальной зарплатой - " +  minSalary);
+
+        int maxSalary = employees[0].getSalary();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary()>maxSalary) {
+                maxSalary=employees[i].getSalary();
+            }
+        }
+        System.out.println("Сотрудник с максимальной зарплатой - " + maxSalary);
+
+        int averageValueSalary = totalSalary / employees.length;
+        System.out.println("Средняя заработная плата - " + averageValueSalary);
+
+        for (int i = 0; i < person.length; i++) {
+            System.out.println(person[i]);
+        }
+    }
+    public static void printEmployees() {
+        Employee[] employees = new Employee[10];
+        for (Employee employee : employees) {
+            System.out.println(employee);
         }
     }
 }

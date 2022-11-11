@@ -14,6 +14,6 @@ public class Person {
     public String getPatronymicPerson() {return this.patronymicPerson;}
 
     public String toString() {
-        return "ФИО сотрудника " + this.surNamePerson + " " + this.namePerson + " " + this.patronymicPerson;
+        return "ФИО - " + this.surNamePerson + " " + this.namePerson + " " + this.patronymicPerson;
     }
 }

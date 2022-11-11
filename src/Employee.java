@@ -1,12 +1,20 @@
 public class Employee {
-    private Person person;
-    int department;
-    int salary;
+    private final Person person;
+    private int department;
+    private int salary;
+    private final int id;
+    private static int counter;
+
 
     public Employee(Person Person, int department, int salary) {
         this.person = Person;
         this.department = department;
         this.salary = salary;
+        id = counter++;
+    }
+
+    public int getId() {
+        return id;
     }
     public int getDepartment() {
         return this.department;
@@ -21,6 +29,6 @@ public class Employee {
         this.salary = salary;
     }
     public String toString() {
-        return " № номер отдела " + this.department + " получает зарплату " + this.salary;
+        return " № отдела " + this.department + " получает зарплату " + this.salary;
     }
 }
