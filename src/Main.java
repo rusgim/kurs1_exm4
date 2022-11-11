@@ -31,13 +31,14 @@ public class Main {
                 if (departmentServise.isAdult(employees[i])) {
                     System.out.println("Введите правильный отдел сотрудника  - от 1 до 5");
                 } else {
-                    id++;
+                    id = id + 1;
+                    System.out.print( "Cчетчик -" + id + " ");
                     System.out.println(person[i].toString() + employees[i].toString());
                 }
             } else {
                 System.out.println("");
             }
-            System.out.println(id);
+            printSeparator();
         }
         int totalSalary = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -68,10 +69,7 @@ public class Main {
             System.out.println(person[i]);
         }
     }
-    public static void printEmployees() {
-        Employee[] employees = new Employee[10];
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
+    public static void printSeparator() {
+        System.out.println("---------------------------------------------");
     }
 }
